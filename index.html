@@ -31,22 +31,35 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="data/Cameratraplocations_0.js"></script>
-        <script src="data/Naledi_Roads_1.js"></script>
-        <script src="data/Naledirivers_2.js"></script>
-        <script src="data/Naleiboundary_3.js"></script>
-        <script src="data/Geolocatedphotos_4.js"></script>
+        <script src="data/Cameratraplocations_1.js"></script>
+        <script src="data/Naledi_Roads_2.js"></script>
+        <script src="data/Naledirivers_3.js"></script>
+        <script src="data/Naleiboundary_4.js"></script>
+        <script src="data/Geolocatedphotos_5.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-22.0856174430757,29.049531610709746],[-22.083826526032823,29.053187709576786]]);
+        }).fitBounds([[-22.08767160041961,29.041733428463694],[-22.080507900180937,29.05635782393185]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        function pop_Cameratraplocations_0(feature, layer) {
+        map.createPane('pane_OSMStandard_0');
+        map.getPane('pane_OSMStandard_0').style.zIndex = 400;
+        var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            pane: 'pane_OSMStandard_0',
+            opacity: 1.0,
+            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OSMStandard_0;
+        map.addLayer(layer_OSMStandard_0);
+        function pop_Cameratraplocations_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
@@ -55,9 +68,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Cameratraplocations_0_0() {
+        function style_Cameratraplocations_1_0() {
             return {
-                pane: 'pane_Cameratraplocations_0',
+                pane: 'pane_Cameratraplocations_1',
                 shape: 'diamond',
                 radius: 8.8,
                 opacity: 1,
@@ -72,27 +85,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Cameratraplocations_0');
-        map.getPane('pane_Cameratraplocations_0').style.zIndex = 400;
-        map.getPane('pane_Cameratraplocations_0').style['mix-blend-mode'] = 'normal';
-        var layer_Cameratraplocations_0 = new L.geoJson(json_Cameratraplocations_0, {
+        map.createPane('pane_Cameratraplocations_1');
+        map.getPane('pane_Cameratraplocations_1').style.zIndex = 401;
+        map.getPane('pane_Cameratraplocations_1').style['mix-blend-mode'] = 'normal';
+        var layer_Cameratraplocations_1 = new L.geoJson(json_Cameratraplocations_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Cameratraplocations_0',
-            layerName: 'layer_Cameratraplocations_0',
-            pane: 'pane_Cameratraplocations_0',
-            onEachFeature: pop_Cameratraplocations_0,
+            dataVar: 'json_Cameratraplocations_1',
+            layerName: 'layer_Cameratraplocations_1',
+            pane: 'pane_Cameratraplocations_1',
+            onEachFeature: pop_Cameratraplocations_1,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_Cameratraplocations_0_0(feature));
+                return L.shapeMarker(latlng, style_Cameratraplocations_1_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Cameratraplocations_0);
-        map.addLayer(layer_Cameratraplocations_0);
-        function pop_Naledi_Roads_1(feature, layer) {
+        bounds_group.addLayer(layer_Cameratraplocations_1);
+        map.addLayer(layer_Cameratraplocations_1);
+        function pop_Naledi_Roads_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
@@ -101,9 +114,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Naledi_Roads_1_0() {
+        function style_Naledi_Roads_2_0() {
             return {
-                pane: 'pane_Naledi_Roads_1',
+                pane: 'pane_Naledi_Roads_2',
                 opacity: 1,
                 color: 'rgba(3,1,0,1.0)',
                 dashArray: '',
@@ -114,21 +127,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Naledi_Roads_1');
-        map.getPane('pane_Naledi_Roads_1').style.zIndex = 401;
-        map.getPane('pane_Naledi_Roads_1').style['mix-blend-mode'] = 'normal';
-        var layer_Naledi_Roads_1 = new L.geoJson(json_Naledi_Roads_1, {
+        map.createPane('pane_Naledi_Roads_2');
+        map.getPane('pane_Naledi_Roads_2').style.zIndex = 402;
+        map.getPane('pane_Naledi_Roads_2').style['mix-blend-mode'] = 'normal';
+        var layer_Naledi_Roads_2 = new L.geoJson(json_Naledi_Roads_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Naledi_Roads_1',
-            layerName: 'layer_Naledi_Roads_1',
-            pane: 'pane_Naledi_Roads_1',
-            onEachFeature: pop_Naledi_Roads_1,
-            style: style_Naledi_Roads_1_0,
+            dataVar: 'json_Naledi_Roads_2',
+            layerName: 'layer_Naledi_Roads_2',
+            pane: 'pane_Naledi_Roads_2',
+            onEachFeature: pop_Naledi_Roads_2,
+            style: style_Naledi_Roads_2_0,
         });
-        bounds_group.addLayer(layer_Naledi_Roads_1);
-        map.addLayer(layer_Naledi_Roads_1);
-        function pop_Naledirivers_2(feature, layer) {
+        bounds_group.addLayer(layer_Naledi_Roads_2);
+        map.addLayer(layer_Naledi_Roads_2);
+        function pop_Naledirivers_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
@@ -137,9 +150,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Naledirivers_2_0() {
+        function style_Naledirivers_3_0() {
             return {
-                pane: 'pane_Naledirivers_2',
+                pane: 'pane_Naledirivers_3',
                 opacity: 1,
                 color: 'rgba(7,152,255,1.0)',
                 dashArray: '',
@@ -150,21 +163,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Naledirivers_2');
-        map.getPane('pane_Naledirivers_2').style.zIndex = 402;
-        map.getPane('pane_Naledirivers_2').style['mix-blend-mode'] = 'normal';
-        var layer_Naledirivers_2 = new L.geoJson(json_Naledirivers_2, {
+        map.createPane('pane_Naledirivers_3');
+        map.getPane('pane_Naledirivers_3').style.zIndex = 403;
+        map.getPane('pane_Naledirivers_3').style['mix-blend-mode'] = 'normal';
+        var layer_Naledirivers_3 = new L.geoJson(json_Naledirivers_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Naledirivers_2',
-            layerName: 'layer_Naledirivers_2',
-            pane: 'pane_Naledirivers_2',
-            onEachFeature: pop_Naledirivers_2,
-            style: style_Naledirivers_2_0,
+            dataVar: 'json_Naledirivers_3',
+            layerName: 'layer_Naledirivers_3',
+            pane: 'pane_Naledirivers_3',
+            onEachFeature: pop_Naledirivers_3,
+            style: style_Naledirivers_3_0,
         });
-        bounds_group.addLayer(layer_Naledirivers_2);
-        map.addLayer(layer_Naledirivers_2);
-        function pop_Naleiboundary_3(feature, layer) {
+        bounds_group.addLayer(layer_Naledirivers_3);
+        map.addLayer(layer_Naledirivers_3);
+        function pop_Naleiboundary_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
@@ -173,9 +186,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Naleiboundary_3_0() {
+        function style_Naleiboundary_4_0() {
             return {
-                pane: 'pane_Naleiboundary_3',
+                pane: 'pane_Naleiboundary_4',
                 opacity: 1,
                 color: 'rgba(152,79,58,1.0)',
                 dashArray: '10,5',
@@ -186,35 +199,35 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Naleiboundary_3');
-        map.getPane('pane_Naleiboundary_3').style.zIndex = 403;
-        map.getPane('pane_Naleiboundary_3').style['mix-blend-mode'] = 'normal';
-        var layer_Naleiboundary_3 = new L.geoJson(json_Naleiboundary_3, {
+        map.createPane('pane_Naleiboundary_4');
+        map.getPane('pane_Naleiboundary_4').style.zIndex = 404;
+        map.getPane('pane_Naleiboundary_4').style['mix-blend-mode'] = 'normal';
+        var layer_Naleiboundary_4 = new L.geoJson(json_Naleiboundary_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Naleiboundary_3',
-            layerName: 'layer_Naleiboundary_3',
-            pane: 'pane_Naleiboundary_3',
-            onEachFeature: pop_Naleiboundary_3,
-            style: style_Naleiboundary_3_0,
+            dataVar: 'json_Naleiboundary_4',
+            layerName: 'layer_Naleiboundary_4',
+            pane: 'pane_Naleiboundary_4',
+            onEachFeature: pop_Naleiboundary_4,
+            style: style_Naleiboundary_4_0,
         });
-        bounds_group.addLayer(layer_Naleiboundary_3);
-        map.addLayer(layer_Naleiboundary_3);
-        function pop_Geolocatedphotos_4(feature, layer) {
+        bounds_group.addLayer(layer_Naleiboundary_4);
+        map.addLayer(layer_Naleiboundary_4);
+        function pop_Geolocatedphotos_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                     <td colspan="2"><img src ="' + feature.properties['RelPath'] +'"></td>\
+                        <td colspan="2"><img src = "'+ feature.properties['RelPath'] + '"</td>\
                     </tr>\
-                      <tr>\
+                    <tr>\
                         <td colspan="2">' + (feature.properties['Nameinweb'] !== null ? autolinker.link(feature.properties['Nameinweb'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Geolocatedphotos_4_0() {
+        function style_Geolocatedphotos_5_0() {
             return {
-                pane: 'pane_Geolocatedphotos_4',
+                pane: 'pane_Geolocatedphotos_5',
                 radius: 4.399999999999997,
                 opacity: 1,
                 color: 'rgba(179,92,21,1.0)',
@@ -228,26 +241,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Geolocatedphotos_4');
-        map.getPane('pane_Geolocatedphotos_4').style.zIndex = 404;
-        map.getPane('pane_Geolocatedphotos_4').style['mix-blend-mode'] = 'normal';
-        var layer_Geolocatedphotos_4 = new L.geoJson(json_Geolocatedphotos_4, {
+        map.createPane('pane_Geolocatedphotos_5');
+        map.getPane('pane_Geolocatedphotos_5').style.zIndex = 405;
+        map.getPane('pane_Geolocatedphotos_5').style['mix-blend-mode'] = 'normal';
+        var layer_Geolocatedphotos_5 = new L.geoJson(json_Geolocatedphotos_5, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Geolocatedphotos_4',
-            layerName: 'layer_Geolocatedphotos_4',
-            pane: 'pane_Geolocatedphotos_4',
-            onEachFeature: pop_Geolocatedphotos_4,
+            dataVar: 'json_Geolocatedphotos_5',
+            layerName: 'layer_Geolocatedphotos_5',
+            pane: 'pane_Geolocatedphotos_5',
+            onEachFeature: pop_Geolocatedphotos_5,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Geolocatedphotos_4_0(feature));
+                return L.circleMarker(latlng, style_Geolocatedphotos_5_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Geolocatedphotos_4);
-        map.addLayer(layer_Geolocatedphotos_4);
+        bounds_group.addLayer(layer_Geolocatedphotos_5);
+        map.addLayer(layer_Geolocatedphotos_5);
         setBounds();
         </script>
     </body>
